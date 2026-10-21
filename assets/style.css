@@ -28,7 +28,6 @@
   --red: #E31E24;        /* logo red */
   --paper: #FFFFFF;
   --muted: #555555;      /* secondary text, 7:1 on white */
-  --line: #E4E4E4;       /* footer divider */
   --studio: #1A1918;     /* behind the photo while it loads */
 
   --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -56,10 +55,11 @@ a:hover { color: var(--red); }
   width: 100%;
   max-width: calc(var(--measure) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
-/* ---------- Opening: logo, verse, heartbeat, player ---------- */
+/* ---------- Opening: logo, verse, player ---------- */
 .opening {
   padding-top: clamp(2rem, 6vw, 3.5rem);
   text-align: center;
@@ -68,53 +68,33 @@ a:hover { color: var(--red); }
 .logo { width: clamp(180px, 46vw, 250px); margin: 0 auto; }
 
 .verse {
-  margin: clamp(2rem, 6vw, 3rem) auto 0;
-  max-width: calc(26rem + 2 * var(--gutter));
+  margin: clamp(1.75rem, 5vw, 2.5rem) auto 0;
   padding: 0 var(--gutter);
 }
 .verse p {
   margin: 0;
-  font-size: clamp(1.45rem, 5.2vw, 2rem);
+  font-size: clamp(1.05rem, 4.3vw, 1.4rem);
   font-style: italic;
-  line-height: 1.3;
-  text-wrap: balance;
+  line-height: 1.45;
 }
 .verse cite {
   display: block;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   font-style: normal;
   font-size: 0.875rem;
   color: var(--muted);
 }
 
-/* The heartbeat line from the logo, stretched across the page,
-   with the player sitting on it. Drawn once when the page loads. */
-.heartbeat {
-  display: block;
-  width: 100%;
-  height: 56px;
-  margin-top: clamp(1.5rem, 5vw, 2.25rem);
-  overflow: visible;
-}
-.heartbeat path {
-  fill: none;
-  stroke: var(--red);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .heartbeat { animation: trace 1.8s ease-out 0.3s both; }
-  @keyframes trace {
-    from { clip-path: inset(0 100% 0 0); }
-    to   { clip-path: inset(0 0 0 0); }
-  }
-}
-
+/* Dark panel behind the AzuraCast player (its background is transparent) */
 .player {
-  margin: 0.75rem auto 0;
-  max-width: 34rem;
+  margin: clamp(1.75rem, 5vw, 2.5rem) auto 0;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
   padding: 0 var(--gutter);
+}
+.player-panel {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 0.5rem;
 }
 .player iframe {
   display: block;
@@ -137,26 +117,29 @@ h2 {
 .section { margin-top: 2.75rem; }
 .section p { margin: 0; }
 
-/* ---------- Studio photo, full width ---------- */
+/* ---------- Studio photo, natural 3:2 proportions ---------- */
 .studio {
-  margin: clamp(2.5rem, 7vw, 4rem) 0 0;
-  background: var(--studio);
+  max-width: 60rem;
+  margin: clamp(2.5rem, 7vw, 3.5rem) auto 0;
+  padding: 0 var(--gutter);
 }
 .studio img {
   width: 100%;
-  height: clamp(240px, 48vw, 560px);
-  object-fit: cover;
-  object-position: 55% 60%;
+  border-radius: 6px;
+  background: var(--studio);
 }
 
 /* ---------- Follow and share links ---------- */
 .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 0.5rem 2rem;
   margin: 0.6rem 0 0;
   padding: 0;
   list-style: none;
+}
+@media (max-width: 26rem) {
+  .links { grid-template-columns: 1fr; }
 }
 .links a {
   display: inline-flex;
@@ -171,17 +154,26 @@ h2 {
 
 .tip { margin-top: 0.9rem; font-size: 0.9375rem; color: var(--muted); }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer, opened by the heartbeat line from the logo ---------- */
+.heartbeat {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-top: clamp(3.5rem, 9vw, 5rem);
+  overflow: visible;
+}
+.heartbeat path {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
 .footer {
-  margin-top: 4rem;
-  padding-top: 1.75rem;
+  padding-top: 1.25rem;
   padding-bottom: 2.5rem;
-  border-top: 1px solid var(--line);
   font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--muted);
 }
 .footer p { margin: 0 0 0.6rem; }
-.footer a { color: var(--ink); }
-.footer a:hover { color: var(--red); }
-.footer .copyright { margin-top: 1.25rem; }
