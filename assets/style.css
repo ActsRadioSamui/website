@@ -105,6 +105,10 @@ a:hover { color: var(--red); }
 @media (max-width: 40rem) {
   .player { --player-scale: 1.2; }
 }
+/* On desktop the whole player is larger: wider panel, enlarged contents */
+@media (min-width: 60rem) {
+  .player { --player-scale: 1.2; max-width: 40rem; }
+}
 
 /* ---------- About ----------
    Desktop: photo to the left of the text, larger than the text column.
@@ -149,7 +153,6 @@ a:hover { color: var(--red); }
 /* Centred on desktop to match the top of the page and the footer */
 @media (min-width: 60rem) {
   .involved { text-align: center; }
-  .involved p { text-wrap: balance; }
 }
 
 h2 {
@@ -160,6 +163,9 @@ h2 {
 }
 .involved h2 { color: var(--red); }
 .involved p { margin: 0; text-wrap: pretty; }
+/* Line break used on desktop only */
+.wide-only { display: none; }
+@media (min-width: 60rem) { .wide-only { display: inline; } }
 
 .links {
   display: flex;
