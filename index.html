@@ -45,9 +45,9 @@
     <cite>Romans 10:17</cite>
   </blockquote>
 
-
-  <!-- Live player from AzuraCast. "theme=dark" keeps it dark on every phone;
-       the black panel behind it is needed because the player is transparent. -->
+  <!-- Live player from AzuraCast. "theme=dark" keeps it dark on every phone.
+       The panel behind it is needed because the player is transparent.
+       Its height is set in style.css (--player-height). -->
   <div class="player">
     <div class="player-panel">
       <iframe src="https://cast.gossdhosting.com/public/acts_radio_samui/embed?theme=dark"
@@ -56,10 +56,13 @@
   </div>
 </header>
 
-<main>
+<main class="grid">
+
+  <!-- On desktop: About beside the photo, then Get involved beside Socials.
+       On phones: everything stacks in this order. -->
 
   <!-- ============ ABOUT ============ -->
-  <section class="column about" aria-label="About Acts Radio Samui">
+  <section class="about" aria-label="About Acts Radio Samui">
     <p>Acts Radio Samui shares the Gospel with listeners at every stage of faith, whether they're taking their first steps or seeking to grow deeper. Through worship music, Bible teaching and prayer, it offers hope, encouragement and guidance for personal, family and everyday challenges. It also aims to bring Christians from different churches and ministries together across Samui and beyond through fellowship, conversation and testimonies. It was launched by <a href="https://www.kohsamuiinternationalchurch.org" target="_blank" rel="noopener">Koh Samui International Church</a> in October 2026, with more to come.</p>
   </section>
 
@@ -68,21 +71,21 @@
     <picture>
       <source type="image/webp"
               srcset="assets/images/studio-800.webp 800w, assets/images/studio-1600.webp 1600w"
-              sizes="(min-width: 60rem) 60rem, 100vw">
+              sizes="(min-width: 60rem) 32rem, 100vw">
       <img src="assets/images/studio-1600.webp" width="1600" height="1067"
            alt="The Acts Radio Samui studio" loading="lazy" decoding="async">
     </picture>
   </figure>
 
   <!-- ============ GET INVOLVED ============ -->
-  <section class="column section">
+  <section class="involved">
     <h2>Want to be part of it?</h2>
     <p>Tell us your story, lend a hand or suggest an idea: write to us at <a href="mailto:contact@actsradiosamui.org">contact@actsradiosamui.org</a>.</p>
   </section>
 
-  <!-- ============ FOLLOW AND SHARE ============ -->
-  <section class="column section">
-    <h2>Follow and share</h2>
+  <!-- ============ SOCIALS ============ -->
+  <section class="socials">
+    <h2>Socials</h2>
     <ul class="links">
       <li><a href="https://www.youtube.com/@ActsRadioSamui" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -97,16 +100,16 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         <span>Share on WhatsApp</span></a></li>
     </ul>
-    <p class="tip">Tip: add this page to your home screen to tune in with one tap.</p>
   </section>
 
 </main>
 
 <!-- ============ FOOTER ============ -->
 <svg class="heartbeat" viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path vector-effect="non-scaling-stroke" d="M0 36 H150 l6 -6 l6 6 h8 l8 -22 l10 34 l7 -12 h12 l5 -4 l5 4 H440 l8 -8 l8 8 h10 l10 -34 l12 52 l10 -28 l8 10 h14 l6 -6 l6 6 H780 l6 -6 l6 6 h8 l8 -22 l10 34 l7 -12 h12 l5 -4 l5 4 H1000"/>
-  </svg>
-<footer class="column footer">
+  <path vector-effect="non-scaling-stroke" d="M0 36 H150 l6 -6 l6 6 h8 l8 -22 l10 34 l7 -12 h12 l5 -4 l5 4 H440 l8 -8 l8 8 h10 l10 -34 l12 52 l10 -28 l8 10 h14 l6 -6 l6 6 H780 l6 -6 l6 6 h8 l8 -22 l10 34 l7 -12 h12 l5 -4 l5 4 H1000"/>
+</svg>
+<footer class="footer">
+  <p class="tip">Tip: add this page to your home screen to tune in with one tap.</p>
   <p>This site uses no cookies and collects no data.</p>
   <p>Scripture taken from the New King James Version®. Copyright © 1982 by Thomas Nelson. Used by permission. All rights reserved.</p>
 </footer>
