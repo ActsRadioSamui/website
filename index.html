@@ -7,6 +7,10 @@
   <meta name="description" content="Christian internet radio from Koh Samui, Thailand. Listen live to worship music, Bible teaching and prayer.">
 
   <link rel="canonical" href="https://actsradiosamui.org/">
+  <!-- The same page in each language -->
+  <link rel="alternate" hreflang="en" href="https://actsradiosamui.org/">
+  <link rel="alternate" hreflang="th" href="https://actsradiosamui.org/th/">
+  <link rel="alternate" hreflang="x-default" href="https://actsradiosamui.org/">
 
   <!-- Preview card when the link is shared (LINE, WhatsApp, Facebook) -->
   <meta property="og:type" content="website">
@@ -18,6 +22,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="th_TH">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Icons for browser tabs and "Add to Home Screen" -->
@@ -28,9 +33,16 @@
 
   <link rel="preload" href="assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Raise the ?v= number whenever style.css changes, so phones load the new version -->
-  <link rel="stylesheet" href="assets/style.css?v=8">
+  <link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
+
+<!-- ============ LANGUAGE SWITCH ============ -->
+<nav class="lang" aria-label="Language">
+  <a href="./" lang="en" hreflang="en" aria-current="page">EN</a>
+  <span aria-hidden="true">·</span>
+  <a href="th/" lang="th" hreflang="th">ไทย</a>
+</nav>
 
 <!-- ============ OPENING: logo, verse, player ============ -->
 <header class="opening">
