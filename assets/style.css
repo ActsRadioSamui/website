@@ -129,19 +129,30 @@ a:hover { color: var(--red); }
   max-width: var(--measure);
   text-wrap: pretty;   /* avoids a single word on the last line */
 }
-@media (min-width: 60rem) {
+.story-text p + p { margin-top: 1em; }   /* space between the About paragraphs */
+@media (min-width: 72rem) {   /* side by side only where both columns have room */
   .story {
-    max-width: calc(68rem + 2 * var(--gutter));
+    max-width: calc(76rem + 2 * var(--gutter));
     margin-left: auto;
     margin-right: auto;
     padding: 0 var(--gutter);
-    grid-template-columns: minmax(0, 4fr) minmax(0, 3fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);   /* photo two-thirds, text one-third */
     column-gap: 3rem;
-    align-items: center;
+    align-items: stretch;
   }
-  .story-photo img { border-radius: 6px; }
+  /* The photo fills the full height of the text beside it */
+  .story-photo { position: relative; min-height: 24rem; }
+  .story-photo img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .story-text { display: flex; flex-direction: column; justify-content: center; }
   .story-text { padding: 0; }
   .story-text p { margin: 0; }
+  .story-text p + p { margin-top: 1em; }
 }
 
 /* ---------- Get involved ---------- */
